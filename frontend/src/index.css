@@ -1,0 +1,87 @@
+/* ─── Design Tokens ────────────────────────────────────────────────────────── */
+:root {
+  /* Colors */
+  --col-bg:        #f7f5f0;
+  --col-surface:   #ffffff;
+  --col-border:    #e8e4dd;
+  --col-accent:    #c84b31;
+  --col-accent-dk: #a33a22;
+  --col-text-1:    #1a1714;
+  --col-text-2:    #5c5650;
+  --col-text-3:    #9c958d;
+  --col-star:      #e6a817;
+  --col-badge:     #1a6b3a;
+  --col-shadow:    rgba(26, 23, 20, 0.08);
+
+  /* Typography */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "DM Sans", system-ui, sans-serif;
+
+  /* Spacing */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+  --space-2xl: 64px;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─── Reset ─────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--col-bg);
+  color: var(--col-text-1);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+
+a { color: inherit; text-decoration: none; }
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--col-bg); }
+::-webkit-scrollbar-thumb { background: var(--col-border); border-radius: 99px; }
+
+/* ─── Utility ────────────────────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 var(--space-md); }
+}
+
+/* Focus visible for keyboard nav */
+:focus-visible {
+  outline: 2px solid var(--col-accent);
+  outline-offset: 2px;
+}
+
+/* Page fade-in */
+#root > * {
+  animation: pageFadeIn 0.25s var(--ease) both;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
